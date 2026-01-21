@@ -36,7 +36,7 @@ The deployment was designed with a hybrid architecture to maximize flexibility a
 ## 🛠️ Tech Stack
 
 * **Docker & Docker Compose:** Containerization of core services for isolation and easy maintenance.
-* **Elasticsearch 8.x:** Log/Metric storage and analysis.
+* **Elasticsearch 9.x:** Log/Metric storage and analysis.
 * **Kibana 8.x:** Dashboarding and Security management.
 * **Elastic Agent & Fleet:** Data ingestion and endpoint management.
 * **OpenSSL / Elastic Certutil:** PKI (Public Key Infrastructure) generation.
