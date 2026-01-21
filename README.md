@@ -58,7 +58,7 @@ Configuration snippet to enable SSL in Elasticsearch:
 YAML
 
 # docker-compose.yml
-services:
+```services:
   es01:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.x
     environment:
@@ -69,13 +69,14 @@ services:
       - xpack.security.http.ssl.certificate_authorities=certs/ca/ca.crt
     ports:
       - "9200:9200"
-
-## 3. Fleet Server Installation (Native)
+```
+# 3. Fleet Server Installation (Native)
 
 The Fleet Server was installed on the Linux host to act as the agent controller. It was configured to trust the CA generated within Docker.
 Bash
 
-# Installation command (example)
+## Installation command (example)
+```
 sudo ./elastic-agent install \
   --url=https://<HOST_IP>:8220 \
   --fleet-server-es=https://localhost:9200 \
@@ -83,3 +84,4 @@ sudo ./elastic-agent install \
   --fleet-server-policy=fleet-server-policy \
   --certificate-authorities=/path/to/ca.crt \
   --fleet-server-es-ca=/path/to/ca.crt
+```
