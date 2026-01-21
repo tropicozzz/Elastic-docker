@@ -1,4 +1,4 @@
-Secure Elastic Stack (ELK) Deployment with Hybrid Fleet Server
+# Secure Elastic Stack (ELK) Deployment with Hybrid Fleet Server
 
 This project implements a robust security and monitoring architecture using the Elastic Stack. The primary goal was to simulate a production-grade environment where security is paramount, implementing full SSL/TLS encryption across all components and utilizing a hybrid architecture for agent management.
 📋 Project Architecture
