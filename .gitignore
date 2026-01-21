@@ -1,0 +1,18 @@
+# Ignorar certificados y claves privadas (MUY IMPORTANTE)
+certs/
+*.key
+*.pem
+*.p12
+*.crt
+
+# Ignorar archivos de entorno con secretos reales
+.env
+
+# Ignorar datos persistentes y logs de elastic
+es_data/
+kibana_data/
+logs/
+
+# Ignorar archivos del sistema operativo
+.DS_Store
+Thumbs.db
