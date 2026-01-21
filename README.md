@@ -50,4 +50,36 @@ Native Elastic tools were used to create a Certificate Authority (CA) and sign c
 
 ```bash
 # Example of cert generation (inside setup container)
-bin/elasticsearch-certutil cert --silent --in instances.yml --out certs/bundle.zipg
+bin/elasticsearch-certutil cert --silent --in instances.yml --out certs/bundle.zipg 
+```
+## 2. Docker Compose (Elasticsearch + Kibana)
+
+Configuration snippet to enable SSL in Elasticsearch:
+YAML
+
+# docker-compose.yml
+services:
+  es01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.x
+    environment:
+      - xpack.security.enabled=true
+      - xpack.security.http.ssl.enabled=true
+      - xpack.security.http.ssl.key=certs/es01/es01.key
+      - xpack.security.http.ssl.certificate=certs/es01/es01.crt
+      - xpack.security.http.ssl.certificate_authorities=certs/ca/ca.crt
+    ports:
+      - "9200:9200"
+
+## 3. Fleet Server Installation (Native)
+
+The Fleet Server was installed on the Linux host to act as the agent controller. It was configured to trust the CA generated within Docker.
+Bash
+
+# Installation command (example)
+sudo ./elastic-agent install \
+  --url=https://<HOST_IP>:8220 \
+  --fleet-server-es=https://localhost:9200 \
+  --fleet-server-service-token=<TOKEN> \
+  --fleet-server-policy=fleet-server-policy \
+  --certificate-authorities=/path/to/ca.crt \
+  --fleet-server-es-ca=/path/to/ca.crt
