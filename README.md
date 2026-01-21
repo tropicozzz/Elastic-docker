@@ -52,12 +52,12 @@ Native Elastic tools were used to create a Certificate Authority (CA) and sign c
 # Example of cert generation (inside setup container)
 bin/elasticsearch-certutil cert --silent --in instances.yml --out certs/bundle.zipg 
 ```
-## 2. Docker Compose (Elasticsearch + Kibana)
+# 2. Docker Compose (Elasticsearch + Kibana)
 
 Configuration snippet to enable SSL in Elasticsearch:
 YAML
 
-# docker-compose.yml
+## docker-compose.yml
 ```services:
   es01:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.x
